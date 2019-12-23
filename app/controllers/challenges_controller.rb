@@ -28,6 +28,13 @@ class ChallengesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @challenge.update(challenge_params)
+        format.html { redirect_to challenge_path(@challenge), notice: 'Updated challenge' }
+      else
+        format.html { redirect_to edit_challenge_path(@challenge), notice: "Error saving challenge: #{@challenge.errors.full_messages}" }
+      end
+    end
   end
 
   def destroy

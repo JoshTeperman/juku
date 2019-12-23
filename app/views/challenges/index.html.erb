@@ -1,3 +1,8 @@
 <h1>Challenges Index</h1>
 
-<%= @challenges.inspect %>
+<% @challenges.each do |challenge| %>
+  <h3><%= challenge.title %></h3>
+  <%= challenge.language %>
+  <p><%= challenge.description %></p>
+  <%= image_tag("#{challenge.gist}") %>
+<% end %>

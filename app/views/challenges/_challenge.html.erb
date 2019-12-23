@@ -1,0 +1,7 @@
+
+<h3><%= challenge.title %></h3>
+<p><%= challenge.description %></p>
+
+<%= link_to 'View', challenge_path(challenge) %>
+<%= link_to 'Edit', edit_challenge_path(challenge) %>
+<%= link_to 'Delete', challenge_path(challenge), method: 'delete' %>

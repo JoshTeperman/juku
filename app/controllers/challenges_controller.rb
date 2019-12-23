@@ -39,6 +39,13 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
+    respond_to do |format|
+      if @challenge.destroy
+        format.html { redirect_to challenges_path, notice: 'Deleted Challenge' }
+      else
+        format.html { redirect_to challenges_path, notice: "Could not delete challenge: #{@challenge.errors.full_messages}" }
+      end
+    end
   end
 
   private

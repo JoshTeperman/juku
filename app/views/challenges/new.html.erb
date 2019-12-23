@@ -7,6 +7,9 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
+  <%= f.label :language %>
+  <%= f.select :language_id, @languages.map {|language| [language.name, language.id] } %>
+
   <%= f.submit 'Create Challenge' %>
 <% end %>
 

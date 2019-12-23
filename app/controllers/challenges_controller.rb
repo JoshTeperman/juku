@@ -10,6 +10,7 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
+    @languages = Language.all
   end
 
   def create

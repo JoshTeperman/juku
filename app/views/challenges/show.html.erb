@@ -1,6 +1,6 @@
 <h1>Show Page - <%= @challenge.title %></h1>
 
-<%= @challenge.language %>
+<%= @challenge.language.name %>
 <p><%= @challenge.description %></p>
 <%= image_tag("#{@challenge.gist}") %>
 

@@ -19,7 +19,7 @@ class ChallengesController < ApplicationController
       if @challenge.save
         format.html { redirect_to @challenge, notice: 'Created new challenge' }
       else
-        format.html { render new_challenge_path, notice: 'Error creating challenge'}
+        format.html { redirect_to new_challenge_path, notice: "Error creating portfolio: #{@challenge.errors.full_messages}" }
       end
     end
   end

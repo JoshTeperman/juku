@@ -1,8 +1,9 @@
 <h1>Challenges Index</h1>
 
+<h3><%= link_to 'Create New Challenge', new_challenge_path %></h3>
+
 <% @challenges.each do |challenge| %>
   <h3><%= challenge.title %></h3>
-  <%= challenge.language %>
   <p><%= challenge.description %></p>
-  <%= image_tag("#{challenge.gist}") %>
+  <%= link_to 'View', challenge_path(challenge) %>
 <% end %>

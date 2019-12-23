@@ -1,0 +1,8 @@
+<h1>Show Page - <%= @challenge.title %></h1>
+
+<%= @challenge.language %>
+<p><%= @challenge.description %></p>
+<%= image_tag("#{@challenge.gist}") %>
+
+<%= link_to 'Back', :back %>
+<%= link_to 'Home', root_path %>

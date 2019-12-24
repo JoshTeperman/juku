@@ -5,4 +5,4 @@ class Challenge < ApplicationRecord
   belongs_to :user
 end
 
-# TODO: challenge.author association
+# TODO: Instead of challenge.user, create 'challenge.author' association

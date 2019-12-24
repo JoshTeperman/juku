@@ -4,3 +4,5 @@ class Challenge < ApplicationRecord
   belongs_to :language
   belongs_to :user
 end
+
+# TODO: challenge.author association

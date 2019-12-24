@@ -1,7 +1,8 @@
 
-<h3><%= @solution.challenge.title %></h3>
+<h3>Challenge: <%= @solution.challenge.title %></h3>
+<h3>Solution</h3>
 <p><%= @solution.challenge.description %></p>
-<p>Challenge Language: <%= @solution.challenge.language %></p>
-<p>Solution Language: <%= @solution.language %></p>
+<p>Challenge Language: <%= @solution.challenge.language.name %></p>
+<p>Solution Language: <%= @solution.language.name %></p>
 
 <%= image_tag(@solution.gist) %>

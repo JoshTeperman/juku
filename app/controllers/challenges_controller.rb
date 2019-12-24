@@ -15,6 +15,7 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
+    @challenge.user = current_user
 
     respond_to do |format|
       if @challenge.save

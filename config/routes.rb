@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home', as: 'home_page'
   get '/about', to: 'pages#about', as: 'about_page'
 
-  resources :challenges
+  resources :challenges do
+    resources :solutions
+  end
+
   root to: 'pages#home'
 end

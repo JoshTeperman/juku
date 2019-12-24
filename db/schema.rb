@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_24_202013) do
+ActiveRecord::Schema.define(version: 2019_12_24_203217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2019_12_24_202013) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "solutions", force: :cascade do |t|
+    t.string "gist"
+    t.bigint "language_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "challenge_id", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_solutions_on_challenge_id"
+    t.index ["language_id"], name: "index_solutions_on_language_id"
+    t.index ["user_id"], name: "index_solutions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -49,4 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_24_202013) do
 
   add_foreign_key "challenges", "languages"
   add_foreign_key "challenges", "users"
+  add_foreign_key "solutions", "challenges"
+  add_foreign_key "solutions", "languages"
+  add_foreign_key "solutions", "users"
 end

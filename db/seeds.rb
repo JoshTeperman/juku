@@ -37,6 +37,7 @@ def seed_languages
 end
 
 def seed_challenges(languages, users)
+  challenges = []
   10.times do |challenge|
     challenge += 1
     new_challenge = Challenge.new(
@@ -48,15 +49,35 @@ def seed_challenges(languages, users)
     new_challenge.language = languages.sample
     new_challenge.user = users.sample
     new_challenge.save!
+    challenges << new_challenge
   end
   puts 'Seeded Challenges'
+
+  challenges
+end
+
+def seed_solutions(users, challenges)
+  challenges.each do |challenge|
+    users.each do |user|
+      new_solution = Solution.new(
+        gist: 'https://via.placeholder.com/500x600',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt?',
+        language_id: challenge.language_id
+      )
+      new_solution.user = user
+      new_solution.challenge = challenge
+      new_solution.save!
+    end
+  end
+  puts 'Seeded Solutions'
 end
 
 def seed
   seed_admin
   users = seed_users
   languages = seed_languages
-  seed_challenges(languages, users)
+  challenges = seed_challenges(languages, users)
+  seed_solutions(users, challenges)
 end
 
 seed

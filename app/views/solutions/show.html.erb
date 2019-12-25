@@ -11,3 +11,4 @@
 <%= image_tag(@solution.gist) if @solution.gist %>
 
 <%= link_to 'Back to Solutions', challenge_solutions_path(@solution.challenge) %>
+<%= link_to 'Edit', edit_challenge_solution_path(challenge_id: @solution.challenge_id, id: @solution.id) %>

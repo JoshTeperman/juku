@@ -14,9 +14,9 @@
     <p class="alert"><%= alert %></p>
 
     <%= render 'shared/nav' %>
-    <% if !current_user.is_a?(Guest) %>
-      <p>Welcome, <%= current_user.username %></p>
-    <% end %>
+    <%= login_helper %>
+    <%= welcome_message %>
+
     <%= yield %>
   </body>
 </html>

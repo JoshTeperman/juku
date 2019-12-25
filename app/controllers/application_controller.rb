@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   private
 
   def guest_user
-    guest_user = Guest.new(email: "guest_#{Time.now.to_i}@guest.com", username: 'Guest')
+    Guest.new(email: "guest_#{Time.now.to_i}@guest.com", username: 'Guest')
   end
 end

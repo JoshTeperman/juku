@@ -60,7 +60,7 @@ def seed_solutions(users, challenges)
   challenges.each do |challenge|
     users.each do |user|
       new_solution = Solution.new(
-        gist: 'https://via.placeholder.com/500x600',
+        gist: 'https://via.placeholder.com/400x500',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt?',
         language_id: challenge.language_id
       )

@@ -1,6 +1,6 @@
 <h1>Solutions Index</h1>
 
-<h3>Challenge Title: <%= @challenge.title %></h3>
+<h3>Challenge Title: <%= link_to "#{@challenge.title}", challenge_path(@challenge) %></h3>
 <p>Challenge Description: <%= @challenge.description %></p>
 <p>Challenge Language: <%= @challenge.language.name %></p>
 

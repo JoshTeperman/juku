@@ -3,7 +3,7 @@
 
 <%= @challenge.language.name %>
 <p><%= @challenge.description %></p>
-<%= image_tag("#{@challenge.gist}") %>
+<%= image_tag(@challenge.gist) %>
 
 <%= link_to 'Solutions', challenge_solutions_path(@challenge) %>
 <%= link_to 'Edit', edit_challenge_path(@challenge) %>

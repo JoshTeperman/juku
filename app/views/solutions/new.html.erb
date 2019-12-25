@@ -1,0 +1,11 @@
+<h1>New Solution Page</h1>
+
+<%= form_for([@challenge, @solution]) do |f| %>
+  <%= f.label :description  %>
+  <%= f.text_field :description  %>
+
+  <%= f.label :gist %>
+  <%= f.text_field :gist %>
+
+  <%= f.submit %>
+<% end %>

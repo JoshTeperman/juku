@@ -52,8 +52,24 @@ class SolutionsController < ApplicationController
         end
       else
         format.html do
-           redirect_to edit_challenge_solution_path(challenge_id: challenge.id, id: solution.id),
-           notice: "Failed to update solution: #{solution.errors.full_messages}"
+          redirect_to edit_challenge_solution_path(challenge_id: challenge.id, id: solution.id),
+          notice: "Failed to update solution: #{solution.errors.full_messages}"
+        end
+      end
+    end
+  end
+
+  def destroy
+    challenge = Challenge.find(params[:challenge_id])
+    solution = Solution.find(params[:id])
+
+    respond_to do |format|
+      if solution.destroy
+        format.html { redirect_to challenge_solutions_path(challenge), notice: 'Deleted solution'}
+      else
+        format.html do
+          redirect_to challenge_solution_path(challenge_id: challenge.id, id: solution.id),
+          notice: "Failed to delete solution: #{solution.errors.full_messages}"
         end
       end
     end

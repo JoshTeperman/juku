@@ -2,3 +2,5 @@
 <p>Solution Language: <%= solution.language.name %></p>
 
 <%= link_to 'View Solution', challenge_solution_path(challenge_id: solution.challenge_id, id: solution.id) %>
+<%= link_to 'Edit', edit_challenge_solution_path(challenge_id: solution.challenge_id, id: solution.id) %>
+<%= link_to 'Delete', challenge_solution_path(challenge_id: solution.challenge_id, id: solution.id), method: 'delete' %>

@@ -21,7 +21,10 @@ class ChallengesController < ApplicationController
       if @challenge.save
         format.html { redirect_to @challenge, notice: 'Created new challenge' }
       else
-        format.html { redirect_to new_challenge_path, notice: "Error creating portfolio: #{@challenge.errors.full_messages}" }
+        format.html do
+          redirect_to new_challenge_path,
+          notice: "Error creating portfolio: #{@challenge.errors.full_messages}"
+        end
       end
     end
   end
@@ -32,9 +35,15 @@ class ChallengesController < ApplicationController
   def update
     respond_to do |format|
       if @challenge.update(challenge_params)
-        format.html { redirect_to challenge_path(@challenge), notice: 'Updated challenge' }
+        format.html do
+          redirect_to challenge_path(@challenge),
+          notice: 'Updated challenge'
+        end
       else
-        format.html { redirect_to edit_challenge_path(@challenge), notice: "Error saving challenge: #{@challenge.errors.full_messages}" }
+        format.html do
+          redirect_to edit_challenge_path(@challenge),
+          notice: "Error saving challenge: #{@challenge.errors.full_messages}"
+        end
       end
     end
   end
@@ -44,7 +53,9 @@ class ChallengesController < ApplicationController
       if @challenge.destroy
         format.html { redirect_to challenges_path, notice: 'Deleted Challenge' }
       else
-        format.html { redirect_to challenges_path, notice: "Could not delete challenge: #{@challenge.errors.full_messages}" }
+        format.html do redirect_to challenges_path,
+          notice: "Could not delete challenge: #{@challenge.errors.full_messages}"
+        end
       end
     end
   end

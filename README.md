@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Interactor Pattern Conventions
 
-Things you may want to cover:
+### Context
 
-* Ruby version
+It might be unclear what's in a `context` object at a particular point in the code.
+Therefore, only attaching values to the `context` at the end of the call method or within the `if something.save...` block.
 
-* System dependencies
+```ruby
+def call
 
-* Configuration
+  new_object = some_object.associated_object.build(
+    param1: context[:param1],
+    param2: context[:param2],
+    param3: context[:param3]
+  )
 
-* Database creation
+  if new_object.save
+    context.new_object = new_object
+  else
+    context.fail!(errors: new_object.errors)
+  end
+end
+```
 
-* Database initialization
+### Delegate
 
-* How to run the test suite
+To make it easier to quickly understand what parameters we erxpect the interactor to have, use `delegate` call at the top of our class.
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+class Something
+  include Interactor
 
-* Deployment instructions
+  delegate :param1, :param2, :param3, :param4, to: :context
 
-* ...
+  def call
+    # do stuff ...
+  end
+
+end
+```

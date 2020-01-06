@@ -15,7 +15,7 @@
 
     <%= render 'shared/nav' %>
     <%= login_helper %>
-    <%= welcome_message %>
+    <%= welcome_message unless devise_controller? %>
 
     <%= yield %>
   </body>

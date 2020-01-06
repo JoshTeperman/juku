@@ -2,7 +2,7 @@ puts 'Generating Seeds'
 
 def seed_admin
   User.create!(
-    email: 'admin@admin.com',
+    email: 'admin@example.com',
     password: 'password',
     username: 'Admin',
     role: 'admin'
@@ -16,7 +16,7 @@ def seed_users
   3.times do |user|
     user += 1
     users << User.create!(
-      email: "user_#{user}@user.com",
+      email: "user_#{user}@example.com",
       password: 'password',
       username: "User_#{user}",
       role: 'user'

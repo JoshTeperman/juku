@@ -1,7 +1,7 @@
 puts 'Generating Seeds'
 
 def seed_admin
-  User.create!(
+  Users::Create.call(
     email: 'admin@example.com',
     password: 'password',
     username: 'Admin',
@@ -15,12 +15,12 @@ def seed_users
 
   3.times do |user|
     user += 1
-    users << User.create!(
+    users << Users::Create.call(
       email: "user_#{user}@example.com",
       password: 'password',
       username: "User_#{user}",
       role: 'user'
-    )
+    ).user
   end
   puts 'Seeded Users'
 

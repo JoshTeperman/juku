@@ -9,7 +9,6 @@ Therefore, only attaching values to the `context` at the end of the call method 
 
 ```ruby
 def call
-
   new_object = some_object.associated_object.build(
     param1: context[:param1],
     param2: context[:param2],

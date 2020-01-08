@@ -3,9 +3,14 @@
 
 <%= @challenge.language.name %>
 <p><%= @challenge.description %></p>
-<%= image_tag(@challenge.gist) %>
+<%= image_tag(@challenge.gist) if @challenge.gist %>
 
-<%= link_to 'Solutions', challenge_solutions_path(@challenge) %>
+<% if false %>
+  <%= link_to 'Solutions', challenge_solutions_path(@challenge) %>
+<% else %>
+  <p>There are no solutions for this Challenge yet. Why don't you <%= link_to 'create', new_challenge_solution_path(@challenge) %> one?</p>
+<% end %>
+
 <%= link_to 'Edit', edit_challenge_path(@challenge) %>
 <%= link_to 'Delete', challenge_path(@challenge), method: 'delete' %>
 <%= link_to 'Back', :back %>
